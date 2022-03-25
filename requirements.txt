@@ -67,7 +67,7 @@ pydeck
 pyforest
 Pygments
 pyparsing
-pyrsistent3
+pyrsistent
 pystan
 python-dateutil
 pytz
