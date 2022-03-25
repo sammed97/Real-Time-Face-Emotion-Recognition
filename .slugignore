@@ -1,0 +1,5 @@
+*.psd
+*.ipynb
+*.pdf
+/test
+/spec
