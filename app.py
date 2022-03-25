@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 import streamlit as st
 from tensorflow import keras
+from tensorflow.keras.models import model_from_json
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
@@ -10,7 +11,11 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 # load model
 emotion_dict = {0:"Angry", 1:"Disgust", 2:"Fear", 3:"Happy", 4:"Neutral", 5:"Sad", 6:"Surprise"}
 
-classifier =load_model('the_final_model.h5')
+json_file = open('model.json', 'r')
+
+loaded_model_json = json_file.read()
+json_file.close()
+classifier = model_from_json(loaded_model_json)
 
 # load weights into new model
 classifier.load_weights("the_final_model.h5")
