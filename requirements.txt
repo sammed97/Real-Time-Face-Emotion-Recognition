@@ -1,5 +1,5 @@
 streamlit
-tensorflow-cpu
+tensorflow-cpu==2.3
 numpy
 Keras
 opencv-python-headless
