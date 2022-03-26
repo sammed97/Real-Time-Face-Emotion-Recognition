@@ -7,7 +7,7 @@ from tensorflow import keras
 from tensorflow.keras.models import model_from_json
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 
 # load model
 emotion_dict = {0:'anger', 1:'disgust', 2:'fear', 3:'happiness', 4: 'sadness', 5: 'surprise', 6: 'neutral'}
@@ -27,7 +27,7 @@ try:
 except Exception:
     st.write("Error loading cascade classifiers")
 
-class VideoProcessor:
+class VideoTransformer(VideoProcessorBase):
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
 
@@ -75,7 +75,7 @@ def main():
     elif choice == "Webcam Face Detection":
         st.header("Webcam Live Feed")
         st.write("Click on start to use webcam and detect your face emotion")
-        webrtc_streamer(key="example", video_processor_factory=VideoProcessor)
+        webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
 
     elif choice == "About":
         st.subheader("About this app")
