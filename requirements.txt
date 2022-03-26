@@ -83,7 +83,7 @@ streamlit
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
-tensorflow-cpu==2.8.0
+tensorflow-cpu==2.3.0
 tensorflow-estimator
 termcolor
 terminado
