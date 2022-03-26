@@ -27,7 +27,7 @@ try:
 except Exception:
     st.write("Error loading cascade classifiers")
 
-class VideoTransformer(VideoProcessorBase):
+class VideoProcessor:
     def recv(self,frame: av.VideoFrame) -> av.VideoFrame:
         img = frame.to_ndarray(format="bgr24")
 
@@ -51,7 +51,7 @@ class VideoTransformer(VideoProcessorBase):
             label_position = (x, y)
             cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        return av.VideoFrame.from_ndarray(img, format="bgr24")
+            return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 def main():
     # Face Analysis Application #
@@ -75,7 +75,7 @@ def main():
     elif choice == "Webcam Face Detection":
         st.header("Webcam Live Feed")
         st.write("Click on start to use webcam and detect your face emotion")
-        webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
+        webrtc_streamer(key="example", video_processor_factory=VideoProcessor)
 
     elif choice == "About":
         st.subheader("About this app")
