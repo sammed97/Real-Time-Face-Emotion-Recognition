@@ -75,7 +75,7 @@ def main():
     elif choice == "Webcam Face Detection":
         st.header("Webcam Live Feed")
         st.write("Click on start to use webcam and detect your face emotion")
-        webrtc_streamer(key="example", video_processor_factory=VideoProcessor)
+        webrtc_streamer(key="example", video_processor_factory=VideoProcessor, rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]})
 
     elif choice == "About":
         st.subheader("About this app")
