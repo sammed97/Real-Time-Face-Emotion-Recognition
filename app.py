@@ -21,7 +21,7 @@ classifier = model_from_json(loaded_model_json)
 # load weights into new model
 classifier.load_weights("the_final_model.h5")
 
-#load face
+#load face 
 try:
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 except Exception:
