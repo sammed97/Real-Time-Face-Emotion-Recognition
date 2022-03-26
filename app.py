@@ -28,7 +28,7 @@ except Exception:
     st.write("Error loading cascade classifiers")
 
 class VideoTransformer(VideoProcessorBase):
-    def recv(self, frame):
+    def recv(self,frame: av.VideoFrame) -> av.VideoFrame:
         img = frame.to_ndarray(format="bgr24")
 
         #image gray
@@ -51,7 +51,7 @@ class VideoTransformer(VideoProcessorBase):
             label_position = (x, y)
             cv2.putText(img, output, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        return img
+        return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 def main():
     # Face Analysis Application #
