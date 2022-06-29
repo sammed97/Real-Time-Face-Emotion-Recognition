@@ -45,7 +45,7 @@ The layers to be added are:-
 7. Dense layer
 
 ### 6.	Model Evaluation: - 
-After evaluating the model I get to know that CNN model was better in all parameters than MobileNet. CNN got the training accuracy of 70% and testing accuracy on test data was 78%, So I saved the CNN model for further operations.
+After evaluating the model I get to know that CNN model was better in all parameters than MobileNet. CNN got the training accuracy of 80% and testing accuracy on test data was 78%, So I saved the CNN model for further operations.
 ![image](https://user-images.githubusercontent.com/85985250/160458499-fd6b4cb3-1c70-4faf-93b8-898044d7597b.png)
 
 
